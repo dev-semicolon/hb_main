@@ -60,30 +60,30 @@ export default function WelcomeSection() {
             </p>
         </div>
 
-        <div className={`flex gap-5 md:gap-[30px] pt-2 transition-all duration-500 ${
+        <div className={`flex gap-4 md:gap-5 lg:gap-[30px] pt-2 transition-all duration-500 overflow-x-auto md:overflow-visible scrollbar-hide w-full lg:w-auto ${
           isHovered ? 'lg:-translate-x-[226px]' : 'lg:translate-x-0'
         }`}>
             {cards.map((card, index) => (
               <div 
                 key={index}
-                className="w-[250px] h-[450px] rounded-[10px] relative overflow-hidden flex items-end p-[30px] flex-shrink-0 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+                className="min-w-[220px] w-[220px] h-[400px] md:min-w-[240px] md:w-[240px] md:h-[420px] lg:w-[250px] lg:h-[450px] rounded-[10px] relative overflow-hidden flex items-end p-6 md:p-[30px] flex-shrink-0 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
                 style={{
                   backgroundImage: `url(${card.image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                 }}
               >
-                <div className="relative space-y-[50px]">
+                <div className="relative space-y-8 md:space-y-10 lg:space-y-[50px]">
                   <div className="space-y-2">
-                    <h3 className="text-xl font-medium leading-[130%] tracking-[0.15px] text-[#FCFCFC]">
+                    <h3 className="text-lg md:text-xl font-medium leading-[130%] tracking-[0.15px] text-[#FCFCFC]">
                       {card.title}
                     </h3>
                     <p 
-                      className={`text-base leading-[130%] tracking-[0.5px] text-[#FCFCFC] ${index === 3 ? 'w-[69px]' : ''}`}
+                      className={`text-sm md:text-base leading-[130%] tracking-[0.5px] text-[#FCFCFC] ${index === 3 ? 'w-[69px]' : ''}`}
                       dangerouslySetInnerHTML={{ __html: card.description }}
                     />
                   </div>
-                  <Link href={card.link} className="px-5 py-2.5 border border-[#FCFCFC] rounded-[50px] text-base tracking-[0.5px] text-[#FCFCFC] hover:bg-[#FCFCFC] hover:text-[#272727] transition-colors inline-block">
+                  <Link href={card.link} className="px-4 md:px-5 py-2 md:py-2.5 border border-[#FCFCFC] rounded-[50px] text-sm md:text-base tracking-[0.5px] text-[#FCFCFC] hover:bg-[#FCFCFC] hover:text-[#272727] transition-colors inline-block">
                     {card.button}
                   </Link>
                 </div>

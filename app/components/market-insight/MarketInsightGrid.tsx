@@ -31,35 +31,35 @@ export default function MarketInsightGrid() {
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
-    <div className="flex flex-col items-center p-0 gap-[80px] w-[1240px] mx-auto">
+    <div className="flex flex-col items-center gap-12 md:gap-16 lg:gap-20 w-full max-w-[1240px] mx-auto px-5 md:px-10 lg:px-0">
       {/* Header */}
-      <div className="flex flex-col items-center p-0 gap-[30px] w-[492.92px] h-[147px]">
-        <h1 className="w-[279px] h-[65px] font-['DM_Sans'] font-bold text-[50px] leading-[130%] text-center tracking-[0.5px] text-[#272727]">
+      <div className="flex flex-col items-center gap-5 md:gap-[30px] w-full max-w-[500px]">
+        <h1 className="font-['DM_Sans'] font-bold text-[32px] md:text-[42px] lg:text-[50px] leading-[130%] text-center tracking-[0.5px] text-[#272727]">
           마켓인사이트
         </h1>
         
         {/* Search Bar */}
-        <div className="box-border flex flex-row items-center px-[10px] gap-[20px] w-[492.92px] h-[52px] border-b border-[#E0E1E3]">
-          <div className="flex flex-row items-center p-0 gap-[60px] w-[124.92px] h-[32px]">
-            <span className="w-[37px] h-[32px] font-['DM_Sans'] font-bold text-[20px] leading-[160%] text-[#272727]">
+        <div className="flex items-center px-2.5 md:px-[10px] gap-3 md:gap-5 w-full border-b border-[#E0E1E3] pb-2">
+          <div className="flex items-center gap-8 md:gap-[60px]">
+            <span className="font-['DM_Sans'] font-bold text-base md:text-lg lg:text-xl leading-[160%] text-[#272727] whitespace-nowrap">
               전체
             </span>
-            <button className="w-[30px] h-[30px] rounded-[100px]">
-              <svg width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button className="w-6 h-6 md:w-[30px] md:h-[30px] rounded-full">
+              <svg width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto">
                 <path d="M1 4L3 6L5 4" stroke="#272727" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
           </div>
           
-          <div className="flex flex-row items-center p-0 gap-[200px] w-[328px] h-[32px]">
+          <div className="flex items-center justify-between flex-1 gap-3">
             <input
               type="text"
               placeholder="검색어 입력"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-[98px] h-[32px] font-['DM_Sans'] font-normal text-[20px] leading-[160%] text-[#74777A] bg-transparent border-none outline-none"
+              className="flex-1 min-w-0 font-['DM_Sans'] font-normal text-sm md:text-base lg:text-xl leading-[160%] text-[#74777A] bg-transparent border-none outline-none"
             />
-            <button className="w-[30px] h-[30px]">
+            <button className="w-6 h-6 md:w-[30px] md:h-[30px] flex-shrink-0">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="13" cy="13" r="7" stroke="#272727" strokeWidth="2"/>
                 <path d="M18 18L22 22" stroke="#272727" strokeWidth="2" strokeLinecap="round"/>
@@ -70,12 +70,12 @@ export default function MarketInsightGrid() {
       </div>
 
       {/* Content */}
-      <div className="flex flex-col items-center p-0 gap-[30px] w-[1240px]">
+      <div className="flex flex-col items-center gap-6 md:gap-[30px] w-full">
         {/* Category Tabs */}
-        <div className="flex flex-row items-center p-0 gap-[10px] w-[518px] h-[44px]">
+        <div className="flex flex-wrap items-center justify-center gap-2 md:gap-2.5 px-4 md:px-0">
           <button 
             onClick={() => setActiveCategory('all')}
-            className={`flex flex-row justify-center items-center px-[20px] py-[10px] gap-[10px] w-[70px] h-[44px] rounded-[50px] font-['DM_Sans'] font-normal text-[16px] leading-[24px] tracking-[0.5px] transition-colors ${
+            className={`px-4 md:px-5 py-2 md:py-2.5 rounded-[50px] font-['DM_Sans'] font-normal text-sm md:text-base leading-[24px] tracking-[0.5px] transition-colors whitespace-nowrap ${
               activeCategory === 'all' 
                 ? 'bg-[#298487] text-[#FCFCFC]' 
                 : 'border border-[#272727] text-[#272727]'
@@ -86,7 +86,7 @@ export default function MarketInsightGrid() {
           
           <button 
             onClick={() => setActiveCategory('tech')}
-            className={`flex flex-row justify-center items-center px-[20px] py-[10px] gap-[10px] w-[131px] h-[44px] rounded-[50px] font-['DM_Sans'] font-normal text-[16px] leading-[24px] tracking-[0.5px] transition-colors ${
+            className={`px-4 md:px-5 py-2 md:py-2.5 rounded-[50px] font-['DM_Sans'] font-normal text-sm md:text-base leading-[24px] tracking-[0.5px] transition-colors whitespace-nowrap ${
               activeCategory === 'tech' 
                 ? 'bg-[#298487] text-[#FCFCFC]' 
                 : 'border border-[#272727] text-[#272727]'
@@ -97,7 +97,7 @@ export default function MarketInsightGrid() {
           
           <button 
             onClick={() => setActiveCategory('global')}
-            className={`flex flex-row justify-center items-center px-[20px] py-[10px] gap-[10px] w-[156px] h-[44px] rounded-[50px] font-['DM_Sans'] font-normal text-[16px] leading-[24px] tracking-[0.5px] transition-colors ${
+            className={`px-4 md:px-5 py-2 md:py-2.5 rounded-[50px] font-['DM_Sans'] font-normal text-sm md:text-base leading-[24px] tracking-[0.5px] transition-colors whitespace-nowrap ${
               activeCategory === 'global' 
                 ? 'bg-[#298487] text-[#FCFCFC]' 
                 : 'border border-[#272727] text-[#272727]'
@@ -108,7 +108,7 @@ export default function MarketInsightGrid() {
           
           <button 
             onClick={() => setActiveCategory('domestic')}
-            className={`flex flex-row justify-center items-center px-[20px] py-[10px] gap-[10px] w-[131px] h-[44px] rounded-[50px] font-['DM_Sans'] font-normal text-[16px] leading-[24px] tracking-[0.5px] transition-colors whitespace-nowrap ${
+            className={`px-4 md:px-5 py-2 md:py-2.5 rounded-[50px] font-['DM_Sans'] font-normal text-sm md:text-base leading-[24px] tracking-[0.5px] transition-colors whitespace-nowrap ${
               activeCategory === 'domestic' 
                 ? 'bg-[#298487] text-[#FCFCFC]' 
                 : 'border border-[#272727] text-[#272727]'
@@ -119,146 +119,67 @@ export default function MarketInsightGrid() {
         </div>
 
         {/* Article Grid */}
-        <div className="flex flex-col items-center p-0 gap-[30px] w-[1240px]">
-          {/* Row 1 */}
-          <div className="flex flex-row items-center p-0 gap-[20px] w-[1240px] h-[299px]">
-            {sampleArticles.slice(0, 4).map((article) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 w-full">
+          {sampleArticles.map((article) => (
+            <div 
+              key={article.id}
+              className="flex flex-col border border-[#DFE1E3] hover:shadow-lg transition-shadow cursor-pointer overflow-hidden"
+            >
               <div 
-                key={article.id}
-                className="flex flex-col items-start p-0 w-[295px] h-[299px] border border-[#DFE1E3] flex-1 hover:shadow-lg transition-shadow cursor-pointer"
-              >
-                <div 
-                  className="w-[295px] h-[170px] bg-gray-200"
-                  style={{
-                    backgroundImage: `url(${article.thumbnail})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                  }}
-                />
-                
-                <div className="flex flex-col justify-center items-center px-[20px] py-[15px] gap-[5px] w-[295px] h-[129px] bg-[#FCFCFC]">
-                  <div className="flex flex-col items-start p-0 gap-[10px] w-[255px] h-[99px]">
-                    <div className="flex flex-col items-start p-0 gap-[5px] w-[255px] h-[65px]">
-                      <div className="flex flex-row justify-center items-center px-[20px] py-[10px] gap-[10px] w-[138px] h-[37px] bg-[#EFF7F8] rounded-[100px]">
-                        <span className="w-[98px] h-[17px] font-['DM_Sans'] font-normal text-[14px] leading-[120%] flex items-center tracking-[0.5px] text-[#272727]">
-                          {article.category}
-                        </span>
-                      </div>
-                      <h3 className="w-[255px] h-[23px] font-['DM_Sans'] font-normal text-[18px] leading-[130%] text-[#272727] truncate">
-                        {article.title}
-                      </h3>
-                    </div>
-                    <p className="w-[194px] h-[24px] font-['DM_Sans'] font-normal text-[16px] leading-[24px] tracking-[0.5px] text-[#74777A] whitespace-nowrap">
-                      {article.dateRange}
-                    </p>
+                className="w-full aspect-[295/170] bg-gray-200"
+                style={{
+                  backgroundImage: `url(${article.thumbnail})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              />
+              
+              <div className="flex flex-col px-4 md:px-5 py-3 md:py-[15px] gap-2 md:gap-2.5 bg-[#FCFCFC]">
+                <div className="flex flex-col gap-2 md:gap-2.5">
+                  <div className="inline-flex items-center justify-center px-4 md:px-5 py-2 md:py-2.5 bg-[#EFF7F8] rounded-[100px] w-fit">
+                    <span className="font-['DM_Sans'] font-normal text-xs md:text-sm leading-[120%] tracking-[0.5px] text-[#272727]">
+                      {article.category}
+                    </span>
                   </div>
+                  <h3 className="font-['DM_Sans'] font-normal text-base md:text-lg leading-[130%] text-[#272727] line-clamp-2">
+                    {article.title}
+                  </h3>
                 </div>
+                <p className="font-['DM_Sans'] font-normal text-sm md:text-base leading-[24px] tracking-[0.5px] text-[#74777A]">
+                  {article.dateRange}
+                </p>
               </div>
-            ))}
-          </div>
-
-          {/* Row 2 */}
-          <div className="flex flex-row items-center p-0 gap-[20px] w-[1240px] h-[299px]">
-            {sampleArticles.slice(4, 8).map((article) => (
-              <div 
-                key={article.id}
-                className="flex flex-col items-start p-0 w-[295px] h-[299px] border border-[#DFE1E3] flex-1 hover:shadow-lg transition-shadow cursor-pointer"
-              >
-                <div 
-                  className="w-[295px] h-[170px] bg-gray-200"
-                  style={{
-                    backgroundImage: `url(${article.thumbnail})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                  }}
-                />
-                
-                <div className="flex flex-col justify-center items-center px-[20px] py-[15px] gap-[5px] w-[295px] h-[129px] bg-[#FCFCFC]">
-                  <div className="flex flex-col items-start p-0 gap-[10px] w-[255px] h-[99px]">
-                    <div className="flex flex-col items-start p-0 gap-[5px] w-[255px] h-[65px]">
-                      <div className="flex flex-row justify-center items-center px-[20px] py-[10px] gap-[10px] w-[138px] h-[37px] bg-[#EFF7F8] rounded-[100px]">
-                        <span className="w-[98px] h-[17px] font-['DM_Sans'] font-normal text-[14px] leading-[120%] flex items-center tracking-[0.5px] text-[#272727]">
-                          {article.category}
-                        </span>
-                      </div>
-                      <h3 className="w-[255px] h-[23px] font-['DM_Sans'] font-normal text-[18px] leading-[130%] text-[#272727] truncate">
-                        {article.title}
-                      </h3>
-                    </div>
-                    <p className="w-[194px] h-[24px] font-['DM_Sans'] font-normal text-[16px] leading-[24px] tracking-[0.5px] text-[#74777A] whitespace-nowrap">
-                      {article.dateRange}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Row 3 */}
-          <div className="flex flex-row items-center p-0 gap-[20px] w-[1240px] h-[299px]">
-            {sampleArticles.slice(8, 12).map((article) => (
-              <div 
-                key={article.id}
-                className="flex flex-col items-start p-0 w-[295px] h-[299px] border border-[#DFE1E3] flex-1 hover:shadow-lg transition-shadow cursor-pointer"
-              >
-                <div 
-                  className="w-[295px] h-[170px] bg-gray-200"
-                  style={{
-                    backgroundImage: `url(${article.thumbnail})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                  }}
-                />
-                
-                <div className="flex flex-col justify-center items-center px-[20px] py-[15px] gap-[5px] w-[295px] h-[129px] bg-[#FCFCFC]">
-                  <div className="flex flex-col items-start p-0 gap-[10px] w-[255px] h-[99px]">
-                    <div className="flex flex-col items-start p-0 gap-[5px] w-[255px] h-[65px]">
-                      <div className="flex flex-row justify-center items-center px-[20px] py-[10px] gap-[10px] w-[138px] h-[37px] bg-[#EFF7F8] rounded-[100px]">
-                        <span className="w-[98px] h-[17px] font-['DM_Sans'] font-normal text-[14px] leading-[120%] flex items-center tracking-[0.5px] text-[#272727]">
-                          {article.category}
-                        </span>
-                      </div>
-                      <h3 className="w-[255px] h-[23px] font-['DM_Sans'] font-normal text-[18px] leading-[130%] text-[#272727] truncate">
-                        {article.title}
-                      </h3>
-                    </div>
-                    <p className="w-[194px] h-[24px] font-['DM_Sans'] font-normal text-[16px] leading-[24px] tracking-[0.5px] text-[#74777A] whitespace-nowrap">
-                      {article.dateRange}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         {/* Pagination */}
-        <div className="flex flex-row items-center p-0 gap-[10px] w-[180px] h-[30px]">
-          <button className="w-[25px] h-[25px] transform rotate-180">
+        <div className="flex items-center gap-2 md:gap-2.5">
+          <button className="w-6 h-6 transform rotate-180">
             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9 6L15 12.5L9 19" stroke="#E6E7E9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
           
-          <button className="flex flex-row justify-center items-center px-[10px] py-[10px] gap-[10px] w-[30px] h-[30px] rounded-[30px]">
-            <span className="font-['DM_Sans'] font-bold text-[16px] leading-[130%] text-[#292626]">
+          <button className="flex items-center justify-center w-7 h-7 md:w-[30px] md:h-[30px] rounded-full">
+            <span className="font-['DM_Sans'] font-bold text-sm md:text-base leading-[130%] text-[#292626]">
               1
             </span>
           </button>
           
-          <button className="flex flex-row justify-center items-center px-[10px] py-[10px] gap-[10px] w-[30px] h-[30px] bg-[#FCFCFC]">
-            <span className="font-['DM_Sans'] font-normal text-[16px] leading-[130%] text-[#E6E7E9]">
+          <button className="flex items-center justify-center w-7 h-7 md:w-[30px] md:h-[30px] bg-[#FCFCFC]">
+            <span className="font-['DM_Sans'] font-normal text-sm md:text-base leading-[130%] text-[#E6E7E9]">
               2
             </span>
           </button>
           
-          <button className="flex flex-row justify-center items-center px-[10px] py-[10px] gap-[10px] w-[30px] h-[30px] bg-[#FCFCFC]">
-            <span className="font-['DM_Sans'] font-normal text-[16px] leading-[130%] text-[#E6E7E9]">
+          <button className="flex items-center justify-center w-7 h-7 md:w-[30px] md:h-[30px] bg-[#FCFCFC]">
+            <span className="font-['DM_Sans'] font-normal text-sm md:text-base leading-[130%] text-[#E6E7E9]">
               3
             </span>
           </button>
           
-          <button className="w-[25px] h-[25px] transform rotate-0">
+          <button className="w-6 h-6 transform rotate-0">
             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9 6L15 12.5L9 19" stroke="#E6E7E9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
